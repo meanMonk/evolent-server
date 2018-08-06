@@ -21,7 +21,7 @@ app.get('*',function(req, res){
 });
 
 app.listen(process.env.PORT || config.server.port, ()=>{
-    console.log(`gulp server is running on port ${port}`);
+    console.log(`gulp server is running on port ${process.env.PORT}`);
 })
 
 module.exports = app;
