@@ -20,10 +20,7 @@ app.get('*',function(req, res){
     res.sendFile(path.join(__dirname+ '/dist/evolent-client/index.html'));
 });
 
-
-const port = process.env.port || config.server.port;
-
-app.listen(port, ()=>{
+app.listen(process.env.PORT || config.server.port, ()=>{
     console.log(`gulp server is running on port ${port}`);
 })
 
