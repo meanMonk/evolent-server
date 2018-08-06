@@ -14,6 +14,10 @@ app.use(bodyParser.json());
 
 
 app.use(express.static(__dirname + '/dist/evolent-client'));
+app.use(express.static(__dirname + '/docs'));
+app.get('/document',function(req, res){
+    res.sendFile(path.join(__dirname+ '/docs/index.html'));
+});
 
 app.get('/',function(req, res){
     res.sendFile(path.join(__dirname+ '/dist/evolent-client/index.html'));
