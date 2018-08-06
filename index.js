@@ -12,13 +12,14 @@ const app = express();
 /* Adding middleware body parser to parse the application/json */
 app.use(bodyParser.json());
 
-require('./api/routes/index.route')(app);
 
-app.use('/', express.static(__dirname + '/dist/evolent-client'));
+app.use(express.static(__dirname + '/dist/evolent-client'));
 
 app.get('/',function(req, res){
     res.sendFile(path.join(__dirname+ '/dist/evolent-client/index.html'));
 });
+
+require('./api/routes/index.route')(app);
 
 app.get('**',function(req, res){
     res.sendFile(path.join(__dirname+ '/dist/evolent-client/index.html'));
