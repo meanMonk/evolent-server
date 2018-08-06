@@ -14,7 +14,11 @@ app.use(bodyParser.json());
 
 require('./api/routes/index.route')(app);
 
-app.use(express.static(__dirname + '/dist/evolent-client'));
+app.use('/', express.static(__dirname + '/dist/evolent-client'));
+
+app.get('/',function(req, res){
+    res.sendFile(path.join(__dirname+ '/dist/evolent-client/index.html'));
+});
 
 app.get('**',function(req, res){
     res.sendFile(path.join(__dirname+ '/dist/evolent-client/index.html'));
