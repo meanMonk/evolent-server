@@ -1,0 +1,11 @@
+src/
+dist/
+data/
+logs/
+node_modules/
+pm2/
+npm-debug.log
+package-lock.json
+.idea/
+.DS_Store
+*.iml

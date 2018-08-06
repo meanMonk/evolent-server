@@ -1,0 +1,32 @@
+{
+  "name": "evolent-exercise",
+  "version": "1.0.0",
+  "description": "MEAN stack sample application with production ready code changes",
+  "main": "index.js",
+  "scripts": {
+    "start": "gulp dev",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "MEAN",
+    "ContactLIst",
+    "CRUD"
+  ],
+  "author": "sahil kashetwar",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.3",
+    "gulp": "^3.9.1",
+    "gulp-mocha": "^6.0.0",
+    "gulp-nodemon": "^2.2.1",
+    "mongoose": "^5.2.6",
+    "should": "^13.2.3",
+    "sinon": "^6.1.4"
+  },
+  "devDependencies": {
+    "gulp-dev": "^0.3.0",
+    "nodemon": "^1.18.3",
+    "supertest": "^3.1.0"
+  }
+}
