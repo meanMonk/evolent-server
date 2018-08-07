@@ -1,6 +1,7 @@
 var gulp = require('gulp');
 var nodemon = require('gulp-nodemon');
 var config = require('./api/config/config');
+var GulpMocha = require('gulp-mocha');
 
 gulp.task('default', function () {
     nodemon({
@@ -45,4 +46,9 @@ gulp.task('production', function () {
     .on('restart', function(){
         console.log('Restarting a server');
     });
+});
+
+gulp.task('test', function () {
+    gulp.src('api/controller/*.spec.js', {read : false})
+        .pipe(GulpMocha());
 });

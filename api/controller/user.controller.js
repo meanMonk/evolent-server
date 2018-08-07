@@ -1,32 +1,39 @@
 const userController = function(userModel) {
 
     const getUsers = (req, res) => {
-        const query = {};
+        let query = {};
         if(req.query.name){
             query.first_name = { "$regex" : req.query.name}
         }
         userModel.find(query, {__v : 0},function(err, userDocs){
            if(err){
-               res.status(500).send(err);
+               res.status(500);
+               res.send(err);
            }else {
                var returnDocs = [];
                 userDocs.forEach((user, index) => {
-                   var user = user.toJSON();
-                   user.links = {};
-                   user.links.self = 'http://' + req.headers.host + '/api/users/' + user._id;
-                   returnDocs.push(user);
+                    user = JSON.stringify(user);
+                   let userDoc = JSON.parse(user);
+                    userDoc['links'] = {};
+                    userDoc.links['self'] = 'http://' + req.headers.host + '/api/users/' + userDoc._id;
+                   returnDocs.push(userDoc);
                });
                res.json(returnDocs);
            }
         });
-    }
+    };
 
     const getUser = (req, res) => {
-        var user = req.userDoc.toJSON();
-        user.links = {};
-        user.links.filter = 'http://' + req.headers.host + '/api/users/?name=' + user.first_name;
-        res.json(user);
-    }
+        userModel.findById(req.params.id, (err, doc)=>{
+            if(err) {
+                res.status(401);
+                res.send(err);
+            }
+            else {
+                res.json(doc);
+            }
+        })
+    };
 
     const createNewUser = (req, res) => {
         const userDoc = new userModel(req.body);
@@ -36,35 +43,32 @@ const userController = function(userModel) {
         }else {
             userDoc.save();
             res.status(201);
-            res.send(userDoc);
+            res.send('user create successfully');
         }
-    }
+    };
+
     const updateUser = (req, res) => {
-        req.userDoc.first_name = req.body.first_name;
-        req.userDoc.last_name = req.body.last_name;
-        req.userDoc.email = req.body.email;
-        req.userDoc.phone = req.body.phone;
-        req.userDoc.active = req.body.active;
-        req.userDoc.save(function (err) {
+        let query = {_id : req.params.id};
+        userModel.findOneAndUpdate(query, req.body, { upsert : true}, function (err, doc) {
             if(err) {
-                res.status(500).send(err);
+                res.status(500);
+                res.send(err);
             } else {
-                res.json(req.userDoc);
+                res.send({message: 'Successfully updated'});
             }
         });
-    }
+    };
+
     const deleteUser = (req, res) => {
-        const query = {};
-        if(req.params.id){
-            query._id = req.params.id;
-        }
-        userModel.remove(query, function (err, userDoc) {
+        let query = {_id : req.params.id};
+        userModel.findOneAndRemove(query, function (err, doc) {
             if(err){
-                res.status(500).send(err)
+                res.status(500);
+                res.send(err);
             }
-            res.send({ message : "User has been deleted successfully"});
+            res.send({message: 'User has been deleted successfully!'});
         });
-    }
+    };
 
     return {
         getUsers : getUsers,
