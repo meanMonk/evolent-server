@@ -37,14 +37,17 @@ const userController = function(userModel) {
 
     const createNewUser = (req, res) => {
         const userDoc = new userModel(req.body);
-        if(!req.body.first_name){
-            res.status(400);
-            res.send('first name is required');
-        }else {
-            userDoc.save();
-            res.status(201);
-            res.send('user create successfully');
-        }
+        userDoc.save(function(err, doc){
+            if(err){
+                res.status(500);
+                res.send({message : 'error occured', err : err['name']});
+            }
+            else {
+                res.status(201);
+                res.send({message : 'user create successfully'});
+            }
+        });
+        
     };
 
     const updateUser = (req, res) => {

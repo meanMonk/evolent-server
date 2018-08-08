@@ -5,25 +5,30 @@
     let userModel = new Schema({
         first_name: {
             type: String,
-            unique: true
+            unique: true,
+            required: true
         },
         last_name: {
-            type: String
+            type: String,
+            required: true
         },
         email: {
-            type: String
+            type: String,
+            required: true
         },
         phone: {
-            type: String
+            type: String,
+            required: true
         },
-        active: {
-            type: Boolean
+        status: {
+            type: String,
+            default : 'Inactive'
         },
         createdAt : {
-            type : Date,
-            value : Date.now()
+            type: Date,
+            default: Date.now()
         }
     });
 
-    module.exports = mongoose.model('users', userModel);
+    module.exports = mongoose.model('UsersCollection', userModel);
 })();
