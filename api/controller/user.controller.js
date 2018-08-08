@@ -36,14 +36,14 @@ const userController = function(userModel) {
     };
 
     const createNewUser = (req, res) => {
-        const userDoc = new userModel(req.body);
-        userDoc.save(function(err, doc){
+        // const userDoc = new userModel(req.body);
+        userModel.create(req.body,function(err, doc){
             if(err){
                 res.status(500);
-                res.send({message : 'error occured', err : err['name']});
+                res.send({message : 'error occurred', err : err['name']});
             }
             else {
-                res.status(201);
+                res.status(200);
                 res.send({message : 'user create successfully'});
             }
         });

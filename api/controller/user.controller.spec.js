@@ -24,36 +24,6 @@ describe(">> User controller test", () => {
             status : sinon.spy(),
             send : sinon.spy()
         }
-    })
-    describe("\n > @newUser() methods : test", () => {
-        
-        beforeEach(function () {
-             req['body'] = {
-                    last_name : 'test demo',
-                    email : 'test@gmai.com',
-                    phone: '1231231231',
-                    active : 'true'
-                };
-                User['save'] = sinon.spy();
-                userController = require('./user.controller')(User);
-        });
-        it(">> should not allow an empty Name on post request", function () {
-
-            userController.newUser(req, res);
-
-            res.status.calledWith(500).should.equal(true);
-            // res.send.calledWith().should.equal(true);
-
-        });
-        it(">> should create new user post request", function () {
-            userController = require('./user.controller')(User);
-            req.body['first_name'] = "test";
-            userController.newUser(req, res);
-
-            res.status.calledWith(201).should.equal(true);
-            // res.send.calledWith({message : 'user create successfully'}).should.equal(true);
-
-        })
     });
     describe("\n > @getUsers() methods : test", ()=>{
 
@@ -203,5 +173,42 @@ describe(">> User controller test", () => {
             sinon.assert.calledWith(res.status, 500);
             sinon.assert.calledWith(res.send, err);
         });
+    });
+    describe("\n > @newUser() methods : test", () => {
+
+        beforeEach(function () {
+            sinon.stub(User, 'create');
+            userController = require('./user.controller')(User);
+        });
+        afterEach(function () {
+            User.create.restore();
+        });
+        it(">> should create new user post request", function (done) {
+            req['body'] = {
+                first_name : 'test',
+                last_name : 'test demo',
+                email : 'test@gmai.com',
+                phone: '1231231231',
+                active : 'true'
+            };
+            User.create.yields(null, 'done');
+            userController.newUser(req, res);
+            sinon.assert.calledWith(res.send, { message: "user create successfully" });
+            done();
+        });
+        it(">> should send error if any property is missing", function (done) {
+            req['body'] = {
+                last_name : 'test demo',
+                email : 'test@gmai.com',
+                phone: '1231231231',
+                active : 'true'
+            };
+
+            let err = {message : 'error occurred', err : "validation error"};
+            User.create.yields({name : "validation error"}, null);
+            userController.newUser(req, res);
+            sinon.assert.calledWith(res.send, err);
+            done();
+        })
     });
 });
