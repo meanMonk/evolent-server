@@ -43,7 +43,7 @@ const userController = function(userModel) {
                 res.send({message : 'error occurred', err : err['name']});
             }
             else {
-                res.status(200);
+                res.status(201);
                 res.send({message : 'user create successfully'});
             }
         });

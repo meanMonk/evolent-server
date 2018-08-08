@@ -1,0 +1,113 @@
+{
+	"variables": [],
+	"info": {
+		"name": "Evolent Contact Exercise REST API DOC.",
+		"_postman_id": "e631a30d-15bd-c73f-bd7c-60aa2be0067b",
+		"description": "Hello ...!\n\nContact Exercise:  This is the exercise for demostrating the coding standard and best practice to follow while devloping the project / web application built with [Backend] : NodeJs / MongoDb / Mongoose\n[FrontEnd] : Angular CLI /  Angular 6\n\n\n\nThis document will describe and walk you through the api implementation of Evolent Contact Exercise Rest API.\nHave a good luck !\n\t\n\t",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "API working end point",
+			"request": {
+				"url": "https://evolent-exercise.herokuapp.com/api",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\n\t\"last_name\": \"last name\",\n\t\"email\" : \"sahil@gmial.com\",\n\t\"phone\" : \"1234567890\",\n\t\"status\" : \"active\"\n}"
+				},
+				"description": "This will gives you the information about the API that it's working or having some error in server."
+			},
+			"response": []
+		},
+		{
+			"name": "Create New User",
+			"request": {
+				"url": "https://evolent-exercise.herokuapp.com/api/users",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"first_name\" : \"first name\",\n\t\"last_name\" : \"first name\",\n\t\"email\" : \"first@name.gmail\",\n\t\"phone\" : \"1234567890\",\n\t\"status\" : \"Active\"\n}"
+				},
+				"description": "This end point will be going to use to create new user in the DB.\n\nOn Sucess : Will send the message as \"User Created Successfully\".\n\nOn Error : \n   500 : with error message in json format"
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Users",
+			"request": {
+				"url": "https://evolent-exercise.herokuapp.com/api/users",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": "Will get all the available users in database.\n\nOn Success : Send the users details in Array.\nOn Error : \n\t500 : with error in json format."
+			},
+			"response": []
+		},
+		{
+			"name": "Get Single User Details",
+			"request": {
+				"url": "http://evolent-exercise.herokuapp.com/api/users/5b6b201a896a0400210d9701",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"status\": \"Inactive\",\n    \"first_name\": \"Name Change\"\n}"
+				},
+				"description": "Will send the all the details of user base on the UserId pass in the parameters.\n\nOn Success : User details in json format.\nOn Error : \n\t500 - Error with message in json format.\n\tWill need to make more improvement in error handling."
+			},
+			"response": []
+		},
+		{
+			"name": "Update Single User ",
+			"request": {
+				"url": "http://evolent-exercise.herokuapp.com/api/users/5b6b201a896a0400210d9701",
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"status\": \"Inactive\",\n    \"first_name\": \"Name Changed Back\"\n}"
+				},
+				"description": "Will use to update the details of user base on the UserId pass in the parameters.\n\nOn Success : Message with successfully created user\nOn Error : \n\t500 - Error with message in json format.\n\tWill need to make more improvement in error handling."
+			},
+			"response": []
+		},
+		{
+			"name": "Delete User",
+			"request": {
+				"url": "http://evolent-exercise.herokuapp.com/api/users/5b6b2261896a0400210d9702",
+				"method": "DELETE",
+				"header": [],
+				"body": {},
+				"description": "Use to delete the user base on it's correspoding UserId.\n\nOn Success : Will send the response with message as deleted successfully.\nOn Error : \n\t500 - Will send error and reason in message.\n\t\nWill need some more work on error handling.\t"
+			},
+			"response": []
+		}
+	]
+}
