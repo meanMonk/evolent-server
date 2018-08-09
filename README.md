@@ -16,22 +16,22 @@ Demo of application can be found at [DEMO LINK](https://evolent-exercise.herokua
   
 This project was generated with Angular CLI version 6.1.1.
 
-# Production build
+### Production build
 
-**__please make sure that you have cloned client project and server project repo in same directory__**
+*please make sure that you have cloned client project and server project repo in same directory*
 
 >> Run `ng build --prod` to generate the production build. 
 The build artifacts will be stored in the `evolent-server/dist/` directory if you have both project in same directory. 
 
-# Development server 
+### Development server 
 
-**Please start Mongodb server on your local and run the below command to start the server **
+*Please start Mongodb server on your local and run the below command to start the server*
 
 >> Run `npm run start:dev` to start the server which will be listen at localhost:8080. 
 
-# Production server 
+### Production server 
 
-**Please start Mongodb server on your local and run the below command to start the server **
+*Please start Mongodb server on your local and run the below command to start the server*
 
 >> Run `npm run start` to start the server which will be listen at localhost:8080. 
 
