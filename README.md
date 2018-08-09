@@ -6,6 +6,7 @@
 * Mongodb
 * Express
 * Gulp
+* MLAB - For production version of heroku app
 
 Demo of application can be found at [DEMO LINK](https://evolent-exercise.herokuapp.com/);
  link``https://evolent-exercise.herokuapp.com``
