@@ -36,10 +36,7 @@ The build artifacts will be stored in the `evolent-server/dist/` directory if yo
 >> Run `npm run start` to start the server which will be listen at localhost:8080. 
 
 # Running Unit test cases
-
-**Please start Mongodb server on your local and run the below command to start the server **
-
->> Run `npm run unit-test` to start the server which will be listen at localhost:8080. 
+>> Run `npm run unit-test` which will print the unit test result on terminal. 
 
 
 Project Images : 
