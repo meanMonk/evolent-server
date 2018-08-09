@@ -1,612 +1,784 @@
 <html lang="en">
-   <head>
-      <meta charset="utf-8">
-      <meta http-equiv="X-UA-Compatible" content="IE=edge">
-      <meta name="viewport" content="width=device-width, initial-scale=1">
-      <meta name="cmodelID" content="3293555-63e805e7-cc28-3931-3590-c5156042a59c">
-      <meta name="description" content="Introduction
-         This rest api will be use to integrate the any client to access the user and contact list data.
-         Overview
-         This rest api's will be free to access.
-         Error Codes
-         400 - field is missing
-         200 - ok
-         201 - created and updated successfully
-         500 - internal server error
-         ">
-      <meta name="generator" content="Postman Documenter">
-      <title>Evolent Contact List Applicaiton  Rest API</title>
-      <!-- Google Tag Manager -->
-      <script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script><script async="" src="https://www.googletagmanager.com/gtm.js?id=GTM-KCKQFT"></script><script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-         new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-         j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-         'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-         })(window,document,'script','dataLayer','GTM-KCKQFT');
-      </script>
-      <!-- End Google Tag Manager -->
-      <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,300,700,800" rel="stylesheet" type="text/css">
-      <link rel="stylesheet" type="text/css" href="/production.min.css">
-      <link rel="shortcut icon" href="/favicon.ico">
-      <script src="/docs-assets/js/messenger-setup.js"></script>
-      <meta property="og:title" content="Evolent Contact List Applicaiton  Rest API">
-      <meta property="og:description" content="Introduction
-         This rest api will be use to integrate the any client to access the user and contact list data.
-         Overview
-         This rest api's will be free to access.
-         Error Codes
-         400 - field is missing
-         200 - ok
-         201 - created and updated successfully
-         500 - internal server error
-         ">
-      <meta property="og:site_name" content="Evolent Contact List Applicaiton  Rest API">
-      <meta property="og:url" content="documenter.getpostman.com">
-      <meta property="og:image" content="https://documenter.getpostman.com/docs-assets/images/logo-glyph.png">
-      <meta name="twitter:title" value="Evolent Contact List Applicaiton  Rest API">
-      <meta name="twitter:description" value="Introduction
-         This rest api will be use to integrate the any client to access the user and contact list data.
-         Overview
-         This rest api's will be free to access.
-         Error Codes
-         400 - field is missing
-         200 - ok
-         201 - created and updated successfully
-         500 - internal server error
-         ">
-      <meta name="twitter:card" content="summary">
-      <meta name="twitter:domain" value="documenter.getpostman.com">
-      <meta name="twitter:image" content="https://documenter.getpostman.com/docs-assets/images/logo-glyph.png">
-      <meta name="twitter:label1" value="Last Update">
-      <meta name="twitter:data1" value="">
-   </head>
-   <body class="" style="">
-      <!-- Google Tag Manager (noscript) -->
-      <noscript>&lt;iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KCKQFT"
-         height="0" width="0" style="display:none;visibility:hidden"&gt;&lt;/iframe&gt;
-      </noscript>
-      <!-- End Google Tag Manager (noscript) -->
-      <div class="layout">
-         <div class="modal white-background" id="rawBodyModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="display: none;">
-            <button type="button" class="close btn-circle" data-dismiss="modal" aria-label="Close">
-               <div>
-                  <span aria-hidden="true">×</span>
-               </div>
-            </button>
-            <div class="modal-dialog" role="document">
-               <div class="modal-content">
-                  <div class="modal-body" style="width: 0px;">
-                     <pre class="language-javascript"><button class="btn btn-sm pull-right copy-request copy-request-modal" data-clipboard-target="#cURL_0_30a2ca69-e486-53b6-27e0-29b59da8ee49" data-before-copy="Copy to Clipboard" data-after-copy="Copied"></button><code class="language-javascript" id="cURL_0_30a2ca69-e486-53b6-27e0-29b59da8ee49">curl --request PUT \
-  --url http://evolent-exercise.herokuapp.com/api/users/5b672a1aa5550b416086cdc7 \
-  --header 'Content-Type: application/json' \
-  --data '{
-	"first_name":"updated name",
-	"last_name":"updated lst",
-	"email" : "name@last.com",
-	"phone":"1231234123",
-	"active" : true
-}'</code></pre>
-                  </div>
-               </div>
-            </div>
-         </div>
-         <div class="modal" id="snippetModal" tabindex="-1" role="dialog" aria-labelledby="documentation-response-modal">
-            <button type="button" class="close btn-circle" data-dismiss="modal" aria-label="Close">
-               <div>
-                  <span aria-hidden="true">×</span>
-               </div>
-            </button>
-            <div class="modal-dialog" role="document">
-               <div class="modal-content">
-                  <div class="modal-body">
-                     <pre><code></code></pre>
-                  </div>
-               </div>
-            </div>
-         </div>
-         <div class="container-fluid no-gutter">
-            <div class="row no-gutter">
-               <div class="col-xs-12 info no-gutter">
-                  <div class="pm-global-notification-container"></div>
-                  <div id="mobile-controls">
-                     <label>User</label>
-                     <div class="btn-group">
-                        <button type="button" class="btn pm-btn pm-btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <span class="pm-doc-sprite pm-doc-sprite-dropdown-caret"></span>
-                        </button>
-                        <ul class="dropdown-menu pull-right">
-                           <li class="dropdown-menu-item"><a href="https://app.getpostman.com/dashboard/edit" target="_blank">Edit Profile</a></li>
-                           <li class="dropdown-menu-item"><a href="https://app.getpostman.com/dashboard/team-plans" target="_blank">Plans &amp; Upgrades</a></li>
-                           <li class="dropdown-menu-item"><a href="https://app.getpostman.com/pay/billing" target="_blank">Billing</a></li>
-                           <li class="dropdown-menu-item"><a href="https://identity.getpostman.com/accounts">Switch User</a></li>
-                           <li class="dropdown-menu-item"><a href="https://app.getpostman.com/web-signout">Sign Out</a></li>
-                        </ul>
-                     </div>
-                     <label>Environment</label>
-                     <div class="environment-dropdown dropdown">
-                        <button class="btn pm-btn pm-btn-secondary dropdown-toggle" type="button" id="environment-dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                           <div class="dropdown-button ellipsis active-environment" data-environment-id="0">Server</div>
-                           <span class="pm-doc-sprite pm-doc-sprite-dropdown-caret"></span>
-                        </button>
-                        <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="environment-dropdown">
-                           <li class="dropdown-menu-item" data-environment-id="0">No environment</li>
-                           <li class="dropdown-menu-seperator"></li>
-                           <li class="dropdown-menu-section">Shared Templates</li>
-                           <li class="dropdown-menu-item dropdown-menu-empty" data-environment-id="undefined-undefined">No shared environments</li>
-                           <li class="dropdown-menu-seperator"></li>
-                           <li class="dropdown-menu-section">Private Environments</li>
-                           <li class="dropdown-menu-item " data-environment-id="3293555-d995c2c2-2999-7fea-9fb9-c45d7edb515a">Server</li>
-                        </ul>
-                     </div>
-                     <label>Language</label>
-                     <div class="language">
-                        <div class="btn-group languages">
-                           <button type="button" class="btn pm-btn pm-btn-secondary dropdown-toggle language-button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                              <div class="active-lang ellipsis">cURL</div>
-                              <span class="pm-doc-sprite pm-doc-sprite-dropdown-caret"></span>
-                           </button>
-                           <ul class="dropdown-menu dropdown-menu-right language_dropdown">
-                              <li class="dropdown-menu-item" data-snippetname="shell:curl">cURL</li>
-                              <li class="dropdown-menu-item" data-snippetname="javascript:jquery">jQuery</li>
-                              <li class="dropdown-menu-item" data-snippetname="ruby:native">Ruby</li>
-                              <li class="dropdown-menu-item" data-snippetname="python:requests">Python Requests</li>
-                              <li class="dropdown-menu-item" data-snippetname="node:native">Node</li>
-                              <li class="dropdown-menu-item" data-snippetname="php:curl">PHP</li>
-                              <li class="dropdown-menu-item" data-snippetname="go:native">Go</li>
-                           </ul>
-                        </div>
-                     </div>
-                  </div>
-                  <div id="error-view">
-                  </div>
-                  <div id="doc-body" class="">
-                     <div class="row row-no-padding row-eq-height" id="intro">
-                        <div class="col-md-6 col-xs-12 section">
-                           <div class="api-information">
-                              <div class="collection-name">
-                                 <p>Evolent Contact List Applicaiton  Rest API</p>
-                              </div>
-                              <div class="collection-description">
-                                 <h1 id="introduction">Introduction</h1>
-                                 <p>  This rest api will be use to integrate the any client to access the user and contact list data.</p>
-                                 <h1 id="overview">Overview</h1>
-                                 <p>  This rest api's will be free to access.</p>
-                                 <h1 id="error-codes">Error Codes</h1>
-                                 <p>400 - field is missing
-                                    200 - ok
-                                    201 - created and updated successfully
-                                    500 - internal server error
-                                 </p>
-                              </div>
-                           </div>
-                        </div>
-                        <div class="col-md-6 col-xs-12 examples">
-                           <div class="language hidden-xs hidden-sm">
-                              <div class="language-heading">Language</div>
-                              <div class="btn-group languages">
-                                 <button type="button" class="btn btn-default dropdown-toggle language-button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <div class="active-lang ellipsis">cURL</div>
-                                    <span class="pm-doc-sprite pm-doc-sprite-dropdown-caret"></span>
-                                 </button>
-                                 <ul class="dropdown-menu dropdown-menu-right language_dropdown">
-                                    <li class="dropdown-menu-item" data-snippetname="shell:curl">cURL</li>
-                                    <li class="dropdown-menu-item" data-snippetname="javascript:jquery">jQuery</li>
-                                    <li class="dropdown-menu-item" data-snippetname="ruby:native">Ruby</li>
-                                    <li class="dropdown-menu-item" data-snippetname="python:requests">Python Requests</li>
-                                    <li class="dropdown-menu-item" data-snippetname="node:native">Node</li>
-                                    <li class="dropdown-menu-item" data-snippetname="php:curl">PHP</li>
-                                    <li class="dropdown-menu-item" data-snippetname="go:native">Go</li>
-                                 </ul>
-                              </div>
-                           </div>
-                           <div class="hidden-xs hidden-sm sidebar-error">
-                              <p class="heading">Could not load examples for this collection</p>
-                              <button class="btn btn-default retry-button" id="retryLoadingExamples">Retry</button>
-                           </div>
-                           <div class="hidden-xs hidden-sm sidebar-loader spinner"></div>
-                        </div>
-                     </div>
-                     <div class="row row-no-padding row-eq-height" id="1d1209bf-d0f7-7a33-a2c2-1471b84a156f">
-                        <div class="col-md-6 col-xs-12 section">
-                           <div class="api-information">
-                              <div class="heading">
-                                 <div class="name">
-                                    <span class="GET method">GET</span>
-                                    search users base on first name
-                                 </div>
-                              </div>
-                              <div class="url">https://evolent-exercise.herokuapp.com/api/users/?name=j</div>
-                              <div class="description">
-                                 <p>This will give the result in the json format for the user with name pass in query param</p>
-                              </div>
-                              <div class="query-params">
-                                 <div class="heading">PARAMS</div>
-                                 <hr>
-                                 <div class="param row">
-                                    <div class="name col-md-3 col-xs-12">name</div>
-                                    <div class="value col-md-9 col-xs-12">j</div>
-                                 </div>
-                              </div>
-                           </div>
-                           <br><br>
-                        </div>
-                        <div class="col-md-6 col-xs-12 examples">
-                           <div class="sample-request">
-                              <div class="heading"><span>Example Request</span></div>
-                              <div class="responses-index">
-                                 <div class="response-name"><span>search users base on first name</span></div>
-                              </div>
-                           </div>
-                           <div class="request code-snippet">
-                              <div class="formatted-requests is-default" data-lang="cURL" data-id="1d1209bf-d0f7-7a33-a2c2-1471b84a156f_0">
-                                 <pre class="click-to-expand-wrapper is-snippet-wrapper"><button class="btn btn-sm pull-right copy-request copy-request-modal" data-clipboard-target="#cURL_0_1d1209bf-d0f7-7a33-a2c2-1471b84a156f" data-before-copy="Copy to Clipboard" data-after-copy="Copied"></button><code class="language-javascript" id="cURL_0_1d1209bf-d0f7-7a33-a2c2-1471b84a156f">curl --request GET \
-  --url 'https://evolent-exercise.herokuapp.com/api/users/?name=j'</code></pre>
-                                 <!-- Button over the expand overlay -->
-                                 <button class="btn btn-sm pull-right copy-request" data-clipboard-target="#cURL_0_1d1209bf-d0f7-7a33-a2c2-1471b84a156f" data-before-copy="Copy to Clipboard" data-after-copy="Copied"></button>
-                              </div>
-                           </div>
-                        </div>
-                     </div>
-                     <div class="row row-no-padding row-eq-height" id="08a26507-07a2-4a00-83c7-328d1b2d910e">
-                        <div class="col-md-6 col-xs-12 section">
-                           <div class="api-information">
-                              <div class="heading">
-                                 <div class="name">
-                                    <span class="GET method">GET</span>
-                                    Specific user information base on the uid
-                                 </div>
-                              </div>
-                              <div class="url">https://evolent-exercise.herokuapp.com/api/users</div>
-                              <div class="description">
-                                 <p>This will give us the user information of specific user base on it's uid.</p>
-                              </div>
-                           </div>
-                           <br><br>
-                        </div>
-                        <div class="col-md-6 col-xs-12 examples">
-                           <div class="sample-request">
-                              <div class="heading"><span>Example Request</span></div>
-                              <div class="responses-index">
-                                 <div class="response-name"><span>Specific user information base on the uid</span></div>
-                              </div>
-                           </div>
-                           <div class="request code-snippet">
-                              <div class="formatted-requests is-default" data-lang="cURL" data-id="08a26507-07a2-4a00-83c7-328d1b2d910e_0">
-                                 <pre class="click-to-expand-wrapper is-snippet-wrapper"><button class="btn btn-sm pull-right copy-request copy-request-modal" data-clipboard-target="#cURL_0_08a26507-07a2-4a00-83c7-328d1b2d910e" data-before-copy="Copy to Clipboard" data-after-copy="Copied"></button><code class="language-javascript" id="cURL_0_08a26507-07a2-4a00-83c7-328d1b2d910e">curl --request GET \
-  --url https://evolent-exercise.herokuapp.com/api/users</code></pre>
-                                 <!-- Button over the expand overlay -->
-                                 <button class="btn btn-sm pull-right copy-request" data-clipboard-target="#cURL_0_08a26507-07a2-4a00-83c7-328d1b2d910e" data-before-copy="Copy to Clipboard" data-after-copy="Copied"></button>
-                              </div>
-                           </div>
-                        </div>
-                     </div>
-                     <div class="row row-no-padding row-eq-height" id="a0239baf-7aa8-df02-c8e4-16b19be7f3a4">
-                        <div class="col-md-6 col-xs-12 section">
-                           <div class="api-information">
-                              <div class="heading">
-                                 <div class="name">
-                                    <span class="DELETE method">DELETE</span>
-                                    Delete user from db
-                                 </div>
-                              </div>
-                              <div class="url">https://evolent-exercise.herokuapp.com/api/users/5b671c1aa055c027d80993be</div>
-                              <div class="description">
-                                 <p>Use to delete the user from db base on the uid by passing it in path.</p>
-                              </div>
-                              <div class="headers">
-                                 <div class="heading">HEADERS</div>
-                                 <hr>
-                                 <div class="param row">
-                                    <div class="name col-md-3 col-xs-12">Content-Type</div>
-                                    <div class="value col-md-9 col-xs-12">application/json</div>
-                                 </div>
-                              </div>
-                           </div>
-                           <br><br>
-                        </div>
-                        <div class="col-md-6 col-xs-12 examples">
-                           <div class="sample-request">
-                              <div class="heading"><span>Example Request</span></div>
-                              <div class="responses-index">
-                                 <div class="response-name"><span>Delete user from db</span></div>
-                              </div>
-                           </div>
-                           <div class="request code-snippet">
-                              <div class="formatted-requests is-default" data-lang="cURL" data-id="a0239baf-7aa8-df02-c8e4-16b19be7f3a4_0">
-                                 <pre class="click-to-expand-wrapper is-snippet-wrapper"><button class="btn btn-sm pull-right copy-request copy-request-modal" data-clipboard-target="#cURL_0_a0239baf-7aa8-df02-c8e4-16b19be7f3a4" data-before-copy="Copy to Clipboard" data-after-copy="Copied"></button><code class="language-javascript" id="cURL_0_a0239baf-7aa8-df02-c8e4-16b19be7f3a4">curl --request DELETE \
-  --url https://evolent-exercise.herokuapp.com/api/users/5b671c1aa055c027d80993be \
-  --header 'Content-Type: application/json'</code></pre>
-                                 <!-- Button over the expand overlay -->
-                                 <button class="btn btn-sm pull-right copy-request" data-clipboard-target="#cURL_0_a0239baf-7aa8-df02-c8e4-16b19be7f3a4" data-before-copy="Copy to Clipboard" data-after-copy="Copied"></button>
-                              </div>
-                           </div>
-                        </div>
-                     </div>
-                     <div class="row row-no-padding row-eq-height" id="3e83da46-dd6f-65a5-381c-d5ecd9dfbff6">
-                        <div class="col-md-6 col-xs-12 section">
-                           <div class="api-information">
-                              <div class="heading">
-                                 <div class="name">
-                                    <span class="POST method">POST</span>
-                                    Create New user
-                                 </div>
-                              </div>
-                              <div class="url">https://evolent-exercise.herokuapp.com/api/users</div>
-                              <div class="description">
-                                 <p>This rest api will be helpful to create new user.</p>
-                              </div>
-                              <div class="headers">
-                                 <div class="heading">HEADERS</div>
-                                 <hr>
-                                 <div class="param row">
-                                    <div class="name col-md-3 col-xs-12">Content-Type</div>
-                                    <div class="value col-md-9 col-xs-12">application/json</div>
-                                 </div>
-                              </div>
-                              <div class="request-body">
-                                 <div class="body-heading">BODY</div>
-                                 <hr>
-                                 <div class="raw-body code-snippet">
-                                    <pre class="body-block click-to-expand-wrapper is-snippet-wrapper"><code class="body-block language-javascript">{
-	"first_name" : "user",
-	"last_name" : "dmeo",
-	"email" : "user@demo.com",
-	"phone" : "0000000000",
-	"active" : true
-}</code></pre>
-                                 </div>
-                              </div>
-                           </div>
-                           <br><br>
-                        </div>
-                        <div class="col-md-6 col-xs-12 examples">
-                           <div class="sample-request">
-                              <div class="heading"><span>Example Request</span></div>
-                              <div class="responses-index">
-                                 <div class="response-name"><span>Create New user</span></div>
-                              </div>
-                           </div>
-                           <div class="request code-snippet">
-                              <div class="formatted-requests is-default" data-lang="cURL" data-id="3e83da46-dd6f-65a5-381c-d5ecd9dfbff6_0">
-                                 <pre class="click-to-expand-wrapper is-snippet-wrapper"><button class="btn btn-sm pull-right copy-request copy-request-modal" data-clipboard-target="#cURL_0_3e83da46-dd6f-65a5-381c-d5ecd9dfbff6" data-before-copy="Copy to Clipboard" data-after-copy="Copied"></button><code class="language-javascript" id="cURL_0_3e83da46-dd6f-65a5-381c-d5ecd9dfbff6">curl --request POST \
-  --url https://evolent-exercise.herokuapp.com/api/users \
-  --header 'Content-Type: application/json' \
-  --data '{
-	"first_name" : "user",
-	"last_name" : "dmeo",
-	"email" : "user@demo.com",
-	"phone" : "0000000000",
-	"active" : true
-}'</code></pre>
-                                 <!-- Button over the expand overlay -->
-                                 <button class="btn btn-sm pull-right copy-request" data-clipboard-target="#cURL_0_3e83da46-dd6f-65a5-381c-d5ecd9dfbff6" data-before-copy="Copy to Clipboard" data-after-copy="Copied"></button>
-                              </div>
-                           </div>
-                        </div>
-                     </div>
-                     <div class="row row-no-padding row-eq-height" id="b242ba2d-aece-155b-e0d8-64edf9f4b354">
-                        <div class="col-md-6 col-xs-12 section">
-                           <div class="api-information">
-                              <div class="heading">
-                                 <div class="name">
-                                    <span class="GET method">GET</span>
-                                    Check is server is up
-                                 </div>
-                              </div>
-                              <div class="url">https://evolent-exercise.herokuapp.com/api</div>
-                              <div class="description">
-                                 <p>This will send us the ok if server is working perfectly</p>
-                              </div>
-                           </div>
-                           <br><br>
-                        </div>
-                        <div class="col-md-6 col-xs-12 examples">
-                           <div class="sample-request">
-                              <div class="heading"><span>Example Request</span></div>
-                              <div class="responses-index">
-                                 <div class="response-name"><span>Check is server is up</span></div>
-                              </div>
-                           </div>
-                           <div class="request code-snippet">
-                              <div class="formatted-requests is-default" data-lang="cURL" data-id="b242ba2d-aece-155b-e0d8-64edf9f4b354_0">
-                                 <pre class="click-to-expand-wrapper is-snippet-wrapper"><button class="btn btn-sm pull-right copy-request copy-request-modal" data-clipboard-target="#cURL_0_b242ba2d-aece-155b-e0d8-64edf9f4b354" data-before-copy="Copy to Clipboard" data-after-copy="Copied"></button><code class="language-javascript" id="cURL_0_b242ba2d-aece-155b-e0d8-64edf9f4b354">curl --request GET \
-  --url https://evolent-exercise.herokuapp.com/api</code></pre>
-                                 <!-- Button over the expand overlay -->
-                                 <button class="btn btn-sm pull-right copy-request" data-clipboard-target="#cURL_0_b242ba2d-aece-155b-e0d8-64edf9f4b354" data-before-copy="Copy to Clipboard" data-after-copy="Copied"></button>
-                              </div>
-                           </div>
-                        </div>
-                     </div>
-                     <div class="row row-no-padding row-eq-height" id="30a2ca69-e486-53b6-27e0-29b59da8ee49">
-                        <div class="col-md-6 col-xs-12 section">
-                           <div class="api-information">
-                              <div class="heading">
-                                 <div class="name">
-                                    <span class="PUT method">PUT</span>
-                                    Update perticular users
-                                 </div>
-                              </div>
-                              <div class="url">http://evolent-exercise.herokuapp.com/api/users/5b672a1aa5550b416086cdc7</div>
-                              <div class="description">
-                                 <p>Update the perticular user base on its id passed in url</p>
-                              </div>
-                              <div class="headers">
-                                 <div class="heading">HEADERS</div>
-                                 <hr>
-                                 <div class="param row">
-                                    <div class="name col-md-3 col-xs-12">Content-Type</div>
-                                    <div class="value col-md-9 col-xs-12">application/json</div>
-                                 </div>
-                              </div>
-                              <div class="request-body">
-                                 <div class="body-heading">BODY</div>
-                                 <hr>
-                                 <div class="raw-body code-snippet">
-                                    <pre class="body-block click-to-expand-wrapper is-snippet-wrapper"><code class="body-block language-javascript">{
-	"first_name":"updated name",
-	"last_name":"updated lst",
-	"email" : "name@last.com",
-	"phone":"1231234123",
-	"active" : true
-}</code></pre>
-                                 </div>
-                              </div>
-                           </div>
-                           <br><br>
-                        </div>
-                        <div class="col-md-6 col-xs-12 examples">
-                           <div class="sample-request">
-                              <div class="heading"><span>Example Request</span></div>
-                              <div class="responses-index">
-                                 <div class="response-name"><span>Update perticular users </span></div>
-                              </div>
-                           </div>
-                           <div class="request code-snippet">
-                              <div class="formatted-requests is-default" data-lang="cURL" data-id="30a2ca69-e486-53b6-27e0-29b59da8ee49_0">
-                                 <pre class="click-to-expand-wrapper is-snippet-wrapper"><button class="btn btn-sm pull-right copy-request copy-request-modal" data-clipboard-target="#cURL_0_30a2ca69-e486-53b6-27e0-29b59da8ee49" data-before-copy="Copy to Clipboard" data-after-copy="Copied"></button><code class="language-javascript" id="cURL_0_30a2ca69-e486-53b6-27e0-29b59da8ee49">curl --request PUT \
-  --url http://evolent-exercise.herokuapp.com/api/users/5b672a1aa5550b416086cdc7 \
-  --header 'Content-Type: application/json' \
-  --data '{
-	"first_name":"updated name",
-	"last_name":"updated lst",
-	"email" : "name@last.com",
-	"phone":"1231234123",
-	"active" : true
-}'</code></pre>
-                                 <!-- Button over the expand overlay -->
-                                 <button class="btn btn-sm pull-right copy-request" data-clipboard-target="#cURL_0_30a2ca69-e486-53b6-27e0-29b59da8ee49" data-before-copy="Copy to Clipboard" data-after-copy="Copied"></button>
-                              </div>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-                  <a href="https://www.getpostman.com/docs/creating_documentation" target="_blank" class="promo-banner is-hidden" id="live-documentation-banner">
-                     <div class="container">
-                        <i class="pm-generic-icon pm-icon-orange-back pm-icon-rounded pm-icon-lg pm-generic-icon-book"></i>
-                        <h3>This is live documentation generated by Postman Pro</h3>
-                        <span>Create your own live docs</span>
-                     </div>
-                  </a>
-               </div>
-               <div class="no-gutter phantom-sidebar"></div>
-               <div class="no-gutter sidebar" id="nav-sidebar">
-                  <div class="collection-heading">
-                     <p class="heading">Evolent Contact List Applicaiton  Rest API</p>
-                  </div>
-                  <ul class="nav navbar-nav" id="navbar-example">
-                     <li class="request intro">
-                        <a class="nav-link dropdown-item" href="#intro">
-                           <div class="request-name">Introduction</div>
-                        </a>
-                     </li>
-                     <li class="toc">
-                        <ul>
-                           <li class="request heading">
-                              <a class="nav-link dropdown-item" href="#introduction">
-                                 <div class="request-name">Introduction</div>
-                              </a>
-                           </li>
-                           <li class="request heading">
-                              <a class="nav-link dropdown-item" href="#overview">
-                                 <div class="request-name">Overview</div>
-                              </a>
-                           </li>
-                           <li class="request heading">
-                              <a class="nav-link dropdown-item" href="#error-codes">
-                                 <div class="request-name">Error Codes</div>
-                              </a>
-                           </li>
-                        </ul>
-                     </li>
-                     <li class="request">
-                        <div class="GET method">
-                           <span>GET</span>
-                        </div>
-                        <div class="request-name" title="search users base on first name">
-                           <a class="nav-link dropdown-item" href="#1d1209bf-d0f7-7a33-a2c2-1471b84a156f">
-                           <span>search users base on first name</span>
-                           </a>
-                        </div>
-                     </li>
-                     <li class="request">
-                        <div class="GET method">
-                           <span>GET</span>
-                        </div>
-                        <div class="request-name" title="Specific user information base on the uid">
-                           <a class="nav-link dropdown-item" href="#08a26507-07a2-4a00-83c7-328d1b2d910e">
-                           <span>Specific user information base on the uid</span>
-                           </a>
-                        </div>
-                     </li>
-                     <li class="request">
-                        <div class="DELETE method">
-                           <span>DEL</span>
-                        </div>
-                        <div class="request-name" title="Delete user from db">
-                           <a class="nav-link dropdown-item" href="#a0239baf-7aa8-df02-c8e4-16b19be7f3a4">
-                           <span>Delete user from db</span>
-                           </a>
-                        </div>
-                     </li>
-                     <li class="request">
-                        <div class="POST method">
-                           <span>POST</span>
-                        </div>
-                        <div class="request-name" title="Create New user">
-                           <a class="nav-link dropdown-item" href="#3e83da46-dd6f-65a5-381c-d5ecd9dfbff6">
-                           <span>Create New user</span>
-                           </a>
-                        </div>
-                     </li>
-                     <li class="request">
-                        <div class="GET method">
-                           <span>GET</span>
-                        </div>
-                        <div class="request-name" title="Check is server is up">
-                           <a class="nav-link dropdown-item" href="#b242ba2d-aece-155b-e0d8-64edf9f4b354">
-                           <span>Check is server is up</span>
-                           </a>
-                        </div>
-                     </li>
-                     <li class="request">
-                        <div class="PUT method">
-                           <span>PUT</span>
-                        </div>
-                        <div class="request-name" title="Update perticular users ">
-                           <a class="nav-link dropdown-item" href="#30a2ca69-e486-53b6-27e0-29b59da8ee49">
-                           <span>Update perticular users </span>
-                           </a>
-                        </div>
-                     </li>
-                  </ul>
-               </div>
-            </div>
-         </div>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="cmodelID" content="3293555-c0dc0b50-e876-a33a-ad1c-02cbb3fa8958">
+
+  <meta name="description" content="Hello ...!
+Contact Exercise:  This is the exercise for demostrating the coding standard and best practice to follow while devloping the project / web application built with [Backend] : NodeJs / MongoDb / Mongoose
+[FrontEnd] : Angular CLI /  Angular 6
+This document will describe and walk you through the api implementation of Evolent Contact Exercise Rest API.
+Have a good luck !
+">
+  <meta name="generator" content="Postman Documenter">
+  <title>Evolent Contact Exercise REST API DOC.</title>
+
+  <!-- Google Tag Manager -->
+  <script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script>
+  <script async="" src="https://www.googletagmanager.com/gtm.js?id=GTM-KCKQFT"></script>
+  <script>(function (w, d, s, l, i) {
+    w[l] = w[l] || []; w[l].push({
+      'gtm.start':
+        new Date().getTime(), event: 'gtm.js'    
+}); var f = d.getElementsByTagName(s)[0],
+      j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+        'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-KCKQFT');</script>
+  <!-- End Google Tag Manager -->
+
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,300,700,800" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" type="text/css" href="./production.min.css">
+  <link rel="shortcut icon" href="/favicon.ico">
+
+
+  <script src="/docs-assets/js/messenger-setup.js"></script>
+  <meta property="og:title" content="Evolent Contact Exercise REST API DOC.">
+  <meta property="og:description" content="Hello ...!
+Contact Exercise:  This is the exercise for demostrating the coding standard and best practice to follow while devloping the project / web application built with [Backend] : NodeJs / MongoDb / Mongoose
+[FrontEnd] : Angular CLI /  Angular 6
+This document will describe and walk you through the api implementation of Evolent Contact Exercise Rest API.
+Have a good luck !
+">
+  <meta property="og:site_name" content="Evolent Contact Exercise REST API DOC.">
+  <meta property="og:url" content="documenter.getpostman.com">
+  <meta property="og:image" content="https://documenter.getpostman.com/docs-assets/images/logo-glyph.png">
+
+
+  <meta name="twitter:title" value="Evolent Contact Exercise REST API DOC.">
+  <meta name="twitter:description" value="Hello ...!
+Contact Exercise:  This is the exercise for demostrating the coding standard and best practice to follow while devloping the project / web application built with [Backend] : NodeJs / MongoDb / Mongoose
+[FrontEnd] : Angular CLI /  Angular 6
+This document will describe and walk you through the api implementation of Evolent Contact Exercise Rest API.
+Have a good luck !
+">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:domain" value="documenter.getpostman.com">
+  <meta name="twitter:image" content="https://documenter.getpostman.com/docs-assets/images/logo-glyph.png">
+  <meta name="twitter:label1" value="Last Update">
+  <meta name="twitter:data1" value="">
+</head>
+
+<body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript>&lt;iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KCKQFT" height="0" width="0" style="display:none;visibility:hidden"&gt;&lt;/iframe&gt;</noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
+  <div class="layout">
+    <div class="top-bar">
+      <div id="menu-toggle" class="visible-xs visible-sm"></div>
+
+      <a target="_blank" href="https://www.getpostman.com">
+        <div class="postman-logo"></div>
+      </a>
+    </div>
+
+    <div class="modal" id="rawBodyModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <button type="button" class="close btn-circle" data-dismiss="modal" aria-label="Close">
+        <div>
+          <span aria-hidden="true">×</span>
+        </div>
+      </button>
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-body">
+          </div>
+        </div>
       </div>
-      <script src="https://cdn.ravenjs.com/3.26.2/raven.min.js" crossorigin="anonymous"></script>
-      <script src="production.min.js" id="script-data-scope" data-var-user-id="3293555" data-var-environment="production" data-var-team-id="0" data-var-domain-url="https://domains.postman.tech/" data-var-host="" data-var-url-prefix="" data-var-version="3.15.5" data-var-sentry-dsn="https://714c749bafde4552896bc6298c2c28a6@sentry.postmanlabs.com/11"></script>
-      <script type="text/javascript">
-         messenger.queue({"body":"One-click live docs for your teams collections <a href=\"https://www.getpostman.com/pricing#pro-free-trial-7\" target=\"_blank\" class=\"gtm-start-trial\">Try for 7 days and share with your team</a>","type":"notify","persist":true});
-      </script>
-      <script type="text/javascript" id="">(function(a,d){var b=!1,c=function(a){b||(dataLayer.push({event:"documenter_engaged"}),b=!0)};a.setTimeout(function(){a.addEventListener("click",c,!1);d.addEventListener("scroll",c,!1)},1E3)})(window,document);</script><script type="text/javascript" id="">var meta={};meta.url=google_tag_manager["GTM-KCKQFT"].macro(4);dataLayer.push({eventSource:"documenter",eventCategory:"documenter",eventAction:"view",eventLabel:google_tag_manager["GTM-KCKQFT"].macro(5),eventMeta:meta});</script><script type="text/javascript" id="">(function(){var eventData,request=new XMLHttpRequest,eventAPI={"production":"https://analytics.getpostman.com/event","staging":"https://analytics.getpostman-beta.com/event"},apiMethod="POST",thisEvent="documenter",thisEnv="production",EventSource=function(property,type,indexType){return{"type":type,"property":property,"indexType":indexType}},eventSources={"documenter":new EventSource("documenter","events-website","client-events"),"echo":new EventSource("echo","events-website",
-         "client-events")},populateIfDefined=function(dataKey,dataLayerValue){if(dataLayerValue&&dataLayerValue!=="undefined"&&dataLayerValue!=="null")eventData[dataKey]=dataLayerValue};thisEvent=eventSources[thisEvent];eventAPI=eventAPI[thisEnv];if(thisEvent&&eventAPI){eventData={"type":thisEvent.type,"indexType":thisEvent.indexType,"env":thisEnv,"property":thisEvent.property,"timestamp":(new Date).toISOString()};populateIfDefined("category","documenter");populateIfDefined("action","view");
-         populateIfDefined("label","undefined");populateIfDefined("value","undefined");populateIfDefined("meta",google_tag_manager["GTM-KCKQFT"].macro(6));populateIfDefined("userId","undefined");populateIfDefined("teamId","undefined");if("undefined"==="run_in_postman")if(""&&""!=="undefined")eventData.meta={referrer:""};if(google_tag_manager["GTM-KCKQFT"].macro(7))console.log("Sending LS event:",eventData);eventData=btoa(JSON.stringify(eventData));
-         request.open(apiMethod,eventAPI,true);setTimeout(function(){request.send(eventData)},0);dataLayer.push({"eventCategory":"","eventAction":"","eventLabel":"","eventValue":"","eventSource":"","eventMeta":{}})}})();
-      </script><script type="text/javascript" id="">var meta={};meta.url=google_tag_manager["GTM-KCKQFT"].macro(10);dataLayer.push({eventSource:"documenter",eventCategory:"documenter",eventAction:"engage",eventLabel:google_tag_manager["GTM-KCKQFT"].macro(11),eventMeta:meta});</script><script type="text/javascript" id="">(function(){var eventData,request=new XMLHttpRequest,eventAPI={"production":"https://analytics.getpostman.com/event","staging":"https://analytics.getpostman-beta.com/event"},apiMethod="POST",thisEvent="documenter",thisEnv="production",EventSource=function(property,type,indexType){return{"type":type,"property":property,"indexType":indexType}},eventSources={"documenter":new EventSource("documenter","events-website","client-events"),"echo":new EventSource("echo","events-website",
-         "client-events")},populateIfDefined=function(dataKey,dataLayerValue){if(dataLayerValue&&dataLayerValue!=="undefined"&&dataLayerValue!=="null")eventData[dataKey]=dataLayerValue};thisEvent=eventSources[thisEvent];eventAPI=eventAPI[thisEnv];if(thisEvent&&eventAPI){eventData={"type":thisEvent.type,"indexType":thisEvent.indexType,"env":thisEnv,"property":thisEvent.property,"timestamp":(new Date).toISOString()};populateIfDefined("category","documenter");populateIfDefined("action","engage");
-         populateIfDefined("label","undefined");populateIfDefined("value","");populateIfDefined("meta",google_tag_manager["GTM-KCKQFT"].macro(12));populateIfDefined("userId","undefined");populateIfDefined("teamId","undefined");if("undefined"==="run_in_postman")if(""&&""!=="undefined")eventData.meta={referrer:""};if(google_tag_manager["GTM-KCKQFT"].macro(13))console.log("Sending LS event:",eventData);eventData=btoa(JSON.stringify(eventData));
-         request.open(apiMethod,eventAPI,true);setTimeout(function(){request.send(eventData)},0);dataLayer.push({"eventCategory":"","eventAction":"","eventLabel":"","eventValue":"","eventSource":"","eventMeta":{}})}})();
-      </script><script type="text/javascript" id="">dataLayer.push({eventSource:"documenter",eventCategory:"documenter",eventAction:"change_environment"});</script><script type="text/javascript" id="">(function(){var eventData,request=new XMLHttpRequest,eventAPI={"production":"https://analytics.getpostman.com/event","staging":"https://analytics.getpostman-beta.com/event"},apiMethod="POST",thisEvent="documenter",thisEnv="production",EventSource=function(property,type,indexType){return{"type":type,"property":property,"indexType":indexType}},eventSources={"documenter":new EventSource("documenter","events-website","client-events"),"echo":new EventSource("echo","events-website",
-         "client-events")},populateIfDefined=function(dataKey,dataLayerValue){if(dataLayerValue&&dataLayerValue!=="undefined"&&dataLayerValue!=="null")eventData[dataKey]=dataLayerValue};thisEvent=eventSources[thisEvent];eventAPI=eventAPI[thisEnv];if(thisEvent&&eventAPI){eventData={"type":thisEvent.type,"indexType":thisEvent.indexType,"env":thisEnv,"property":thisEvent.property,"timestamp":(new Date).toISOString()};populateIfDefined("category","documenter");populateIfDefined("action","change_environment");
-         populateIfDefined("label","");populateIfDefined("value","");populateIfDefined("meta",google_tag_manager["GTM-KCKQFT"].macro(24));populateIfDefined("userId","undefined");populateIfDefined("teamId","undefined");if(""==="run_in_postman")if(""&&""!=="undefined")eventData.meta={referrer:""};if(google_tag_manager["GTM-KCKQFT"].macro(25))console.log("Sending LS event:",eventData);eventData=btoa(JSON.stringify(eventData));
-         request.open(apiMethod,eventAPI,true);setTimeout(function(){request.send(eventData)},0);dataLayer.push({"eventCategory":"","eventAction":"","eventLabel":"","eventValue":"","eventSource":"","eventMeta":{}})}})();
-      </script><script type="text/javascript" id="">var meta={};meta.url=google_tag_manager["GTM-KCKQFT"].macro(28);dataLayer.push({eventSource:"documenter",eventCategory:"documenter",eventAction:"initiate_publish",eventMeta:meta});</script><script type="text/javascript" id="">(function(){var eventData,request=new XMLHttpRequest,eventAPI={"production":"https://analytics.getpostman.com/event","staging":"https://analytics.getpostman-beta.com/event"},apiMethod="POST",thisEvent="documenter",thisEnv="production",EventSource=function(property,type,indexType){return{"type":type,"property":property,"indexType":indexType}},eventSources={"documenter":new EventSource("documenter","events-website","client-events"),"echo":new EventSource("echo","events-website",
-         "client-events")},populateIfDefined=function(dataKey,dataLayerValue){if(dataLayerValue&&dataLayerValue!=="undefined"&&dataLayerValue!=="null")eventData[dataKey]=dataLayerValue};thisEvent=eventSources[thisEvent];eventAPI=eventAPI[thisEnv];if(thisEvent&&eventAPI){eventData={"type":thisEvent.type,"indexType":thisEvent.indexType,"env":thisEnv,"property":thisEvent.property,"timestamp":(new Date).toISOString()};populateIfDefined("category","documenter");populateIfDefined("action","initiate_publish");
-         populateIfDefined("label","");populateIfDefined("value","");populateIfDefined("meta",google_tag_manager["GTM-KCKQFT"].macro(29));populateIfDefined("userId","undefined");populateIfDefined("teamId","undefined");if(""==="run_in_postman")if(""&&""!=="undefined")eventData.meta={referrer:""};if(google_tag_manager["GTM-KCKQFT"].macro(30))console.log("Sending LS event:",eventData);eventData=btoa(JSON.stringify(eventData));
-         request.open(apiMethod,eventAPI,true);setTimeout(function(){request.send(eventData)},0);dataLayer.push({"eventCategory":"","eventAction":"","eventLabel":"","eventValue":"","eventSource":"","eventMeta":{}})}})();
-      </script><script type="text/javascript" id="">dataLayer.push({eventSource:"documenter",eventCategory:"cloud",eventAction:"initiate_trial",eventLabel:"documenter"});</script><script type="text/javascript" id="">(function(){var eventData,request=new XMLHttpRequest,eventAPI={"production":"https://analytics.getpostman.com/event","staging":"https://analytics.getpostman-beta.com/event"},apiMethod="POST",thisEvent="documenter",thisEnv="production",EventSource=function(property,type,indexType){return{"type":type,"property":property,"indexType":indexType}},eventSources={"documenter":new EventSource("documenter","events-website","client-events"),"echo":new EventSource("echo","events-website",
-         "client-events")},populateIfDefined=function(dataKey,dataLayerValue){if(dataLayerValue&&dataLayerValue!=="undefined"&&dataLayerValue!=="null")eventData[dataKey]=dataLayerValue};thisEvent=eventSources[thisEvent];eventAPI=eventAPI[thisEnv];if(thisEvent&&eventAPI){eventData={"type":thisEvent.type,"indexType":thisEvent.indexType,"env":thisEnv,"property":thisEvent.property,"timestamp":(new Date).toISOString()};populateIfDefined("category","cloud");populateIfDefined("action","initiate_trial");
-         populateIfDefined("label","documenter");populateIfDefined("value","");populateIfDefined("meta",google_tag_manager["GTM-KCKQFT"].macro(33));populateIfDefined("userId","undefined");populateIfDefined("teamId","undefined");if("documenter"==="run_in_postman")if(""&&""!=="undefined")eventData.meta={referrer:""};if(google_tag_manager["GTM-KCKQFT"].macro(34))console.log("Sending LS event:",eventData);eventData=btoa(JSON.stringify(eventData));
-         request.open(apiMethod,eventAPI,true);setTimeout(function(){request.send(eventData)},0);dataLayer.push({"eventCategory":"","eventAction":"","eventLabel":"","eventValue":"","eventSource":"","eventMeta":{}})}})();
-      </script>
-   </body>
+    </div>
+
+    <div class="modal" id="snippetModal" tabindex="-1" role="dialog" aria-labelledby="documentation-response-modal">
+      <button type="button" class="close btn-circle" data-dismiss="modal" aria-label="Close">
+        <div>
+          <span aria-hidden="true">×</span>
+        </div>
+      </button>
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-body">
+            <pre><code></code></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-fluid no-gutter">
+      <div class="row no-gutter">
+        <div class="col-xs-12 info no-gutter">
+          <div class="pm-persistent-notification-container">
+            <div id="mid_1533792911540_99">
+              <div class="pm-global-notification pm-global-notify pm-message-persistent">Evolent Contact Rest API exercise Documentation
+              </div>
+            </div>
+          </div>
+          <div class="pm-global-notification-container"></div>
+          <div id="mobile-controls">
+            <label>User</label>
+            <div class="btn-group">
+              <button type="button" class="btn pm-btn pm-btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <span class="pm-doc-sprite pm-doc-sprite-dropdown-caret"></span>
+              </button>
+              <ul class="dropdown-menu pull-right">
+                <li class="dropdown-menu-item">
+                  <a href="https://app.getpostman.com/dashboard/edit" target="_blank">Edit Profile</a>
+                </li>
+                <li class="dropdown-menu-item">
+                  <a href="https://app.getpostman.com/dashboard/team-plans" target="_blank">Plans &amp; Upgrades</a>
+                </li>
+                <li class="dropdown-menu-item">
+                  <a href="https://app.getpostman.com/pay/billing" target="_blank">Billing</a>
+                </li>
+                <li class="dropdown-menu-item">
+                  <a href="https://identity.getpostman.com/accounts">Switch User</a>
+                </li>
+                <li class="dropdown-menu-item">
+                  <a href="https://app.getpostman.com/web-signout">Sign Out</a>
+                </li>
+              </ul>
+            </div>
+
+            <label>Environment</label>
+            <div class="environment-dropdown dropdown">
+              <button class="btn pm-btn pm-btn-secondary dropdown-toggle" type="button" id="environment-dropdown" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="true">
+                <div class="dropdown-button ellipsis active-environment" data-environment-id="0">Server</div>
+                <span class="pm-doc-sprite pm-doc-sprite-dropdown-caret"></span>
+              </button>
+              <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="environment-dropdown">
+                <li class="dropdown-menu-item" data-environment-id="0">No environment</li>
+                <li class="dropdown-menu-seperator"></li>
+                <li class="dropdown-menu-section">Shared Templates</li>
+                <li class="dropdown-menu-item dropdown-menu-empty" data-environment-id="undefined-undefined">No shared environments</li>
+                <li class="dropdown-menu-seperator"></li>
+                <li class="dropdown-menu-section">Private Environments</li>
+                <li class="dropdown-menu-item " data-environment-id="3293555-d995c2c2-2999-7fea-9fb9-c45d7edb515a">Server</li>
+              </ul>
+            </div>
+
+            <label>Language</label>
+            <div class="language">
+              <div class="btn-group languages">
+                <button type="button" class="btn pm-btn pm-btn-secondary dropdown-toggle language-button" data-toggle="dropdown" aria-haspopup="true"
+                  aria-expanded="false">
+                  <div class="active-lang ellipsis">cURL</div>
+                  <span class="pm-doc-sprite pm-doc-sprite-dropdown-caret"></span>
+                </button>
+                <ul class="dropdown-menu dropdown-menu-right language_dropdown">
+                  <li class="dropdown-menu-item" data-snippetname="shell:curl">cURL</li>
+                  <li class="dropdown-menu-item" data-snippetname="javascript:jquery">jQuery</li>
+                  <li class="dropdown-menu-item" data-snippetname="ruby:native">Ruby</li>
+                  <li class="dropdown-menu-item" data-snippetname="python:requests">Python Requests</li>
+                  <li class="dropdown-menu-item" data-snippetname="node:native">Node</li>
+                  <li class="dropdown-menu-item" data-snippetname="php:curl">PHP</li>
+                  <li class="dropdown-menu-item" data-snippetname="go:native">Go</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div id="error-view">
+          </div>
+
+          <div id="doc-body" class="">
+            <div class="row row-no-padding row-eq-height" id="intro">
+              <div class="col-md-6 col-xs-12 section">
+                <div class="api-information">
+                  <div class="collection-name">
+                    <p>Evolent Contact Exercise REST API DOC.</p>
+                  </div>
+                  <div class="collection-description">
+                    <p>Hello ...!</p>
+                    <p>Contact Exercise: This is the exercise for demostrating the coding standard and best practice to follow
+                      while devloping the project / web application built with [Backend] : NodeJs / MongoDb / Mongoose [FrontEnd]
+                      : Angular CLI / Angular 6</p>
+                    <p>This document will describe and walk you through the api implementation of Evolent Contact Exercise Rest
+                      API. Have a good luck !</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6 col-xs-12 examples">
+                <div class="language hidden-xs hidden-sm">
+                  <div class="language-heading">Language</div>
+                  <div class="btn-group languages">
+                    <button type="button" class="btn btn-default dropdown-toggle language-button" data-toggle="dropdown" aria-haspopup="true"
+                      aria-expanded="false">
+                      <div class="active-lang ellipsis">cURL</div>
+                      <span class="pm-doc-sprite pm-doc-sprite-dropdown-caret"></span>
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-right language_dropdown">
+                      <li class="dropdown-menu-item" data-snippetname="shell:curl">cURL</li>
+                      <li class="dropdown-menu-item" data-snippetname="javascript:jquery">jQuery</li>
+                      <li class="dropdown-menu-item" data-snippetname="ruby:native">Ruby</li>
+                      <li class="dropdown-menu-item" data-snippetname="python:requests">Python Requests</li>
+                      <li class="dropdown-menu-item" data-snippetname="node:native">Node</li>
+                      <li class="dropdown-menu-item" data-snippetname="php:curl">PHP</li>
+                      <li class="dropdown-menu-item" data-snippetname="go:native">Go</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div class="hidden-xs hidden-sm sidebar-error">
+                  <p class="heading">Could not load examples for this collection</p>
+                  <button class="btn btn-default retry-button" id="retryLoadingExamples">Retry</button>
+                </div>
+                <div class="hidden-xs hidden-sm sidebar-loader spinner"></div>
+              </div>
+
+            </div>
+            <div class="row row-no-padding row-eq-height" id="931cf9f6-3204-23c0-52d0-9092d0ba0631">
+              <div class="col-md-6 col-xs-12 section">
+                <div class="api-information">
+                  <div class="heading">
+                    <div class="name">
+                      <span class="GET method">GET</span>
+                      API working end point
+                    </div>
+                  </div>
+                  <div class="url">https://evolent-exercise.herokuapp.com/api</div>
+                  <div class="description">
+                    <p>This will gives you the information about the API that it's working or having some error in server.</p>
+                  </div>
+
+                  <div class="headers">
+                    <div class="heading">HEADERS</div>
+                    <hr>
+                    <div class="param row">
+                      <div class="name col-md-3 col-xs-12">Content-Type</div>
+                      <div class="value col-md-9 col-xs-12">application/json</div>
+                    </div>
+                  </div>
+
+
+
+                  <div class="request-body">
+                    <div class="body-heading">BODY</div>
+                    <hr>
+                    <div class="raw-body code-snippet">
+                      <pre class="body-block click-to-expand-wrapper is-snippet-wrapper"><code class="body-block language-javascript">{
+
+"last_name": "last name",
+"email" : "sahil@gmial.com",
+"phone" : "1234567890",
+"status" : "active"
+}</code></pre>
+                    </div>
+
+                  </div>
+
+                </div>
+                <br>
+                <br>
+              </div>
+
+
+              <div class="col-md-6 col-xs-12 examples">
+                <div class="sample-request">
+                  <div class="heading">
+                    <span>Example Request</span>
+                  </div>
+
+                  <div class="responses-index">
+                    <div class="response-name">
+                      <span>API working end point</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="request code-snippet">
+                  <div class="formatted-requests is-default" data-lang="cURL" data-id="931cf9f6-3204-23c0-52d0-9092d0ba0631_0">
+                    <pre class="click-to-expand-wrapper is-snippet-wrapper  language-javascript"><button class="btn btn-sm pull-right copy-request copy-request-modal" data-clipboard-target="#cURL_0_931cf9f6-3204-23c0-52d0-9092d0ba0631" data-before-copy="Copy to Clipboard" data-after-copy="Copied"></button><code class=" is-highlighted language-javascript" id="cURL_0_931cf9f6-3204-23c0-52d0-9092d0ba0631">curl <span class="token operator">--</span>request GET \
+<span class="token operator">--</span>url https<span class="token punctuation">:</span><span class="token operator">/</span><span class="token operator">/</span>evolent<span class="token operator">-</span>exercise<span class="token punctuation">.</span>herokuapp<span class="token punctuation">.</span>com<span class="token operator">/</span>api \
+<span class="token operator">--</span>header <span class="token string">'Content-Type: application/json'</span></code></pre>
+                    <!-- Button over the expand overlay -->
+                    <button class="btn btn-sm pull-right copy-request" data-clipboard-target="#cURL_0_931cf9f6-3204-23c0-52d0-9092d0ba0631" data-before-copy="Copy to Clipboard"
+                      data-after-copy="Copied"></button>
+                  </div>
+                </div>
+
+              </div>
+
+            </div>
+            <div class="row row-no-padding row-eq-height" id="fe6a6efd-abae-3557-ec3f-2ee9461e4c8b">
+              <div class="col-md-6 col-xs-12 section">
+                <div class="api-information">
+                  <div class="heading">
+                    <div class="name">
+                      <span class="POST method">POST</span>
+                      Create New User
+                    </div>
+                  </div>
+                  <div class="url">https://evolent-exercise.herokuapp.com/api/users</div>
+                  <div class="description">
+                    <p>This end point will be going to use to create new user in the DB.</p>
+                    <p>On Sucess : Will send the message as "User Created Successfully".</p>
+                    <p>On Error : 500 : with error message in json format</p>
+                  </div>
+
+                  <div class="headers">
+                    <div class="heading">HEADERS</div>
+                    <hr>
+                    <div class="param row">
+                      <div class="name col-md-3 col-xs-12">Content-Type</div>
+                      <div class="value col-md-9 col-xs-12">application/json</div>
+                    </div>
+                  </div>
+
+
+
+                  <div class="request-body">
+                    <div class="body-heading">BODY</div>
+                    <hr>
+                    <div class="raw-body code-snippet">
+                      <pre class="body-block click-to-expand-wrapper is-snippet-wrapper"><code class="body-block language-javascript">{
+"first_name" : "first name",
+"last_name" : "first name",
+"email" : "first@name.gmail",
+"phone" : "1234567890",
+"status" : "Active"
+}</code></pre>
+                    </div>
+
+                  </div>
+
+                </div>
+                <br>
+                <br>
+              </div>
+
+
+              <div class="col-md-6 col-xs-12 examples">
+                <div class="sample-request">
+                  <div class="heading">
+                    <span>Example Request</span>
+                  </div>
+
+                  <div class="responses-index">
+                    <div class="response-name">
+                      <span>Create New User</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="request code-snippet">
+                  <div class="formatted-requests is-default" data-lang="cURL" data-id="fe6a6efd-abae-3557-ec3f-2ee9461e4c8b_0">
+                    <pre class="click-to-expand-wrapper is-snippet-wrapper is-expandable"><button class="btn btn-sm pull-right copy-request copy-request-modal" data-clipboard-target="#cURL_0_fe6a6efd-abae-3557-ec3f-2ee9461e4c8b" data-before-copy="Copy to Clipboard" data-after-copy="Copied"></button><code class="language-javascript" id="cURL_0_fe6a6efd-abae-3557-ec3f-2ee9461e4c8b">curl --request POST \
+--url https://evolent-exercise.herokuapp.com/api/users \
+--header 'Content-Type: application/json' \
+--data '{
+"first_name" : "first name",
+"last_name" : "first name",
+"email" : "first@name.gmail",
+"phone" : "1234567890",
+"status" : "Active"
+}'</code></pre>
+                    <!-- Button over the expand overlay -->
+                    <button class="btn btn-sm pull-right copy-request" data-clipboard-target="#cURL_0_fe6a6efd-abae-3557-ec3f-2ee9461e4c8b" data-before-copy="Copy to Clipboard"
+                      data-after-copy="Copied"></button>
+                  </div>
+                </div>
+
+              </div>
+
+            </div>
+            <div class="row row-no-padding row-eq-height" id="c3e6d2a0-d9da-445f-b996-d514f02b656a">
+              <div class="col-md-6 col-xs-12 section">
+                <div class="api-information">
+                  <div class="heading">
+                    <div class="name">
+                      <span class="GET method">GET</span>
+                      Get All Users
+                    </div>
+                  </div>
+                  <div class="url">https://evolent-exercise.herokuapp.com/api/users</div>
+                  <div class="description">
+                    <p>Will get all the available users in database.</p>
+                    <p>On Success : Send the users details in Array. On Error : 500 : with error in json format.</p>
+                  </div>
+
+
+
+
+
+                </div>
+                <br>
+                <br>
+              </div>
+
+
+              <div class="col-md-6 col-xs-12 examples">
+                <div class="sample-request">
+                  <div class="heading">
+                    <span>Example Request</span>
+                  </div>
+
+                  <div class="responses-index">
+                    <div class="response-name">
+                      <span>Get All Users</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="request code-snippet">
+                  <div class="formatted-requests is-default" data-lang="cURL" data-id="c3e6d2a0-d9da-445f-b996-d514f02b656a_0">
+                    <pre class="click-to-expand-wrapper is-snippet-wrapper"><button class="btn btn-sm pull-right copy-request copy-request-modal" data-clipboard-target="#cURL_0_c3e6d2a0-d9da-445f-b996-d514f02b656a" data-before-copy="Copy to Clipboard" data-after-copy="Copied"></button><code class="language-javascript" id="cURL_0_c3e6d2a0-d9da-445f-b996-d514f02b656a">curl --request GET \
+--url https://evolent-exercise.herokuapp.com/api/users</code></pre>
+                    <!-- Button over the expand overlay -->
+                    <button class="btn btn-sm pull-right copy-request" data-clipboard-target="#cURL_0_c3e6d2a0-d9da-445f-b996-d514f02b656a" data-before-copy="Copy to Clipboard"
+                      data-after-copy="Copied"></button>
+                  </div>
+                </div>
+
+              </div>
+
+            </div>
+            <div class="row row-no-padding row-eq-height" id="65aa8e28-8508-ed1f-30c3-b7c598c37ac0">
+              <div class="col-md-6 col-xs-12 section">
+                <div class="api-information">
+                  <div class="heading">
+                    <div class="name">
+                      <span class="GET method">GET</span>
+                      Get Single User Details
+                    </div>
+                  </div>
+                  <div class="url">http://evolent-exercise.herokuapp.com/api/users/5b6b201a896a0400210d9701</div>
+                  <div class="description">
+                    <p>Will send the all the details of user base on the UserId pass in the parameters.</p>
+                    <p>On Success : User details in json format. On Error : 500 - Error with message in json format. Will need
+                      to make more improvement in error handling.</p>
+                  </div>
+
+                  <div class="headers">
+                    <div class="heading">HEADERS</div>
+                    <hr>
+                    <div class="param row">
+                      <div class="name col-md-3 col-xs-12">Content-Type</div>
+                      <div class="value col-md-9 col-xs-12">application/json</div>
+                    </div>
+                  </div>
+
+
+
+                  <div class="request-body">
+                    <div class="body-heading">BODY</div>
+                    <hr>
+                    <div class="raw-body code-snippet">
+                      <pre class="body-block click-to-expand-wrapper is-snippet-wrapper"><code class="body-block language-javascript">{
+  "status": "Inactive",
+  "first_name": "Name Change"
+}</code></pre>
+                    </div>
+
+                  </div>
+
+                </div>
+                <br>
+                <br>
+              </div>
+
+
+              <div class="col-md-6 col-xs-12 examples">
+                <div class="sample-request">
+                  <div class="heading">
+                    <span>Example Request</span>
+                  </div>
+
+                  <div class="responses-index">
+                    <div class="response-name">
+                      <span>Get Single User Details</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="request code-snippet">
+                  <div class="formatted-requests is-default" data-lang="cURL" data-id="65aa8e28-8508-ed1f-30c3-b7c598c37ac0_0">
+                    <pre class="click-to-expand-wrapper is-snippet-wrapper"><button class="btn btn-sm pull-right copy-request copy-request-modal" data-clipboard-target="#cURL_0_65aa8e28-8508-ed1f-30c3-b7c598c37ac0" data-before-copy="Copy to Clipboard" data-after-copy="Copied"></button><code class="language-javascript" id="cURL_0_65aa8e28-8508-ed1f-30c3-b7c598c37ac0">curl --request GET \
+--url http://evolent-exercise.herokuapp.com/api/users/5b6b201a896a0400210d9701 \
+--header 'Content-Type: application/json'</code></pre>
+                    <!-- Button over the expand overlay -->
+                    <button class="btn btn-sm pull-right copy-request" data-clipboard-target="#cURL_0_65aa8e28-8508-ed1f-30c3-b7c598c37ac0" data-before-copy="Copy to Clipboard"
+                      data-after-copy="Copied"></button>
+                  </div>
+                </div>
+
+              </div>
+
+            </div>
+            <div class="row row-no-padding row-eq-height" id="f025879f-3dab-5ff9-5c4f-5ef9682f5daa">
+              <div class="col-md-6 col-xs-12 section">
+                <div class="api-information">
+                  <div class="heading">
+                    <div class="name">
+                      <span class="PUT method">PUT</span>
+                      Update Single User
+                    </div>
+                  </div>
+                  <div class="url">http://evolent-exercise.herokuapp.com/api/users/5b6b201a896a0400210d9701</div>
+                  <div class="description">
+                    <p>Will use to update the details of user base on the UserId pass in the parameters.</p>
+                    <p>On Success : Message with successfully created user On Error : 500 - Error with message in json format.
+                      Will need to make more improvement in error handling.</p>
+                  </div>
+
+                  <div class="headers">
+                    <div class="heading">HEADERS</div>
+                    <hr>
+                    <div class="param row">
+                      <div class="name col-md-3 col-xs-12">Content-Type</div>
+                      <div class="value col-md-9 col-xs-12">application/json</div>
+                    </div>
+                  </div>
+
+
+
+                  <div class="request-body">
+                    <div class="body-heading">BODY</div>
+                    <hr>
+                    <div class="raw-body code-snippet">
+                      <pre class="body-block click-to-expand-wrapper is-snippet-wrapper language-javascript"><code class="body-block language-javascript">{
+  "status": "Inactive",
+  "first_name": "Name Changed Back"
+}</code></pre>
+                    </div>
+
+                  </div>
+
+                </div>
+                <br>
+                <br>
+              </div>
+
+
+              <div class="col-md-6 col-xs-12 examples">
+                <div class="sample-request">
+                  <div class="heading">
+                    <span>Example Request</span>
+                  </div>
+
+                  <div class="responses-index">
+                    <div class="response-name">
+                      <span>Update Single User </span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="request code-snippet">
+                  <div class="formatted-requests is-default" data-lang="cURL" data-id="f025879f-3dab-5ff9-5c4f-5ef9682f5daa_0">
+                    <pre class="click-to-expand-wrapper is-snippet-wrapper"><button class="btn btn-sm pull-right copy-request copy-request-modal" data-clipboard-target="#cURL_0_f025879f-3dab-5ff9-5c4f-5ef9682f5daa" data-before-copy="Copy to Clipboard" data-after-copy="Copied"></button><code class="language-javascript" id="cURL_0_f025879f-3dab-5ff9-5c4f-5ef9682f5daa">curl --request PUT \
+--url http://evolent-exercise.herokuapp.com/api/users/5b6b201a896a0400210d9701 \
+--header 'Content-Type: application/json' \
+--data '{
+  "status": "Inactive",
+  "first_name": "Name Changed Back"
+}'</code></pre>
+                    <!-- Button over the expand overlay -->
+                    <button class="btn btn-sm pull-right copy-request" data-clipboard-target="#cURL_0_f025879f-3dab-5ff9-5c4f-5ef9682f5daa" data-before-copy="Copy to Clipboard"
+                      data-after-copy="Copied"></button>
+                  </div>
+                </div>
+
+              </div>
+
+            </div>
+            <div class="row row-no-padding row-eq-height" id="f55b512c-8beb-aef0-042e-8a80f3e75aa6">
+              <div class="col-md-6 col-xs-12 section">
+                <div class="api-information">
+                  <div class="heading">
+                    <div class="name">
+                      <span class="DELETE method">DELETE</span>
+                      Delete User
+                    </div>
+                  </div>
+                  <div class="url">http://evolent-exercise.herokuapp.com/api/users/5b6b2261896a0400210d9702</div>
+                  <div class="description">
+                    <p>Use to delete the user base on it's correspoding UserId.</p>
+                    <p>On Success : Will send the response with message as deleted successfully. On Error : 500 - Will send
+                      error and reason in message.</p>
+                    <p>Will need some more work on error handling. </p>
+                  </div>
+
+
+
+
+
+                </div>
+                <br>
+                <br>
+              </div>
+
+
+              <div class="col-md-6 col-xs-12 examples">
+                <div class="sample-request">
+                  <div class="heading">
+                    <span>Example Request</span>
+                  </div>
+
+                  <div class="responses-index">
+                    <div class="response-name">
+                      <span>Delete User</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="request code-snippet">
+                  <div class="formatted-requests is-default" data-lang="cURL" data-id="f55b512c-8beb-aef0-042e-8a80f3e75aa6_0">
+                    <pre class="click-to-expand-wrapper is-snippet-wrapper language-javascript"><button class="btn btn-sm pull-right copy-request copy-request-modal" data-clipboard-target="#cURL_0_f55b512c-8beb-aef0-042e-8a80f3e75aa6" data-before-copy="Copy to Clipboard" data-after-copy="Copied"></button><code class="language-javascript" id="cURL_0_f55b512c-8beb-aef0-042e-8a80f3e75aa6">curl --request DELETE \
+--url http://evolent-exercise.herokuapp.com/api/users/5b6b2261896a0400210d9702</code></pre>
+                    <!-- Button over the expand overlay -->
+                    <button class="btn btn-sm pull-right copy-request" data-clipboard-target="#cURL_0_f55b512c-8beb-aef0-042e-8a80f3e75aa6" data-before-copy="Copy to Clipboard"
+                      data-after-copy="Copied"></button>
+                  </div>
+                </div>
+
+              </div>
+
+            </div>
+          </div>
+
+          <a href="https://www.getpostman.com/docs/creating_documentation" target="_blank" class="promo-banner is-hidden" id="live-documentation-banner">
+            <div class="container">
+              <i class="pm-generic-icon pm-icon-orange-back pm-icon-rounded pm-icon-lg pm-generic-icon-book"></i>
+              <h3>This is live documentation generated by Postman Pro</h3>
+              <span>Create your own live docs</span>
+            </div>
+          </a>
+        </div>
+        <div class="no-gutter phantom-sidebar"></div>
+        <div class="no-gutter sidebar" id="nav-sidebar">
+          <div class="collection-heading">
+            <p class="heading">Evolent Contact Exercise REST API DOC.</p>
+          </div>
+          <ul class="nav navbar-nav" id="navbar-example">
+            <li class="request intro">
+              <a class="nav-link dropdown-item" href="#intro">
+                <div class="request-name">Introduction</div>
+              </a>
+            </li>
+            <li class="toc">
+              <ul></ul>
+            </li>
+            <li class="request">
+              <div class="GET method">
+                <span>GET</span>
+              </div>
+              <div class="request-name" title="API working end point">
+                <a class="nav-link dropdown-item" href="#931cf9f6-3204-23c0-52d0-9092d0ba0631">
+                  <span>API working end point</span>
+                </a>
+              </div>
+            </li>
+            <li class="request">
+              <div class="POST method">
+                <span>POST</span>
+              </div>
+              <div class="request-name" title="Create New User">
+                <a class="nav-link dropdown-item" href="#fe6a6efd-abae-3557-ec3f-2ee9461e4c8b">
+                  <span>Create New User</span>
+                </a>
+              </div>
+            </li>
+            <li class="request">
+              <div class="GET method">
+                <span>GET</span>
+              </div>
+              <div class="request-name" title="Get All Users">
+                <a class="nav-link dropdown-item" href="#c3e6d2a0-d9da-445f-b996-d514f02b656a">
+                  <span>Get All Users</span>
+                </a>
+              </div>
+            </li>
+            <li class="request">
+              <div class="GET method">
+                <span>GET</span>
+              </div>
+              <div class="request-name" title="Get Single User Details">
+                <a class="nav-link dropdown-item" href="#65aa8e28-8508-ed1f-30c3-b7c598c37ac0">
+                  <span>Get Single User Details</span>
+                </a>
+              </div>
+            </li>
+            <li class="request">
+              <div class="PUT method">
+                <span>PUT</span>
+              </div>
+              <div class="request-name" title="Update Single User ">
+                <a class="nav-link dropdown-item" href="#f025879f-3dab-5ff9-5c4f-5ef9682f5daa">
+                  <span>Update Single User </span>
+                </a>
+              </div>
+            </li>
+            <li class="request">
+              <div class="DELETE method">
+                <span>DEL</span>
+              </div>
+              <div class="request-name" title="Delete User">
+                <a class="nav-link dropdown-item" href="#f55b512c-8beb-aef0-042e-8a80f3e75aa6">
+                  <span>Delete User</span>
+                </a>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <script src="https://cdn.ravenjs.com/3.26.2/raven.min.js" crossorigin="anonymous"></script>
+  <script src="./production.min.js" id="script-data-scope" data-var-user-id="3293555" data-var-environment="production" data-var-team-id="0"
+    data-var-domain-url="https://domains.postman.tech/" data-var-host="" data-var-url-prefix="" data-var-version="3.15.5" data-var-sentry-dsn="https://714c749bafde4552896bc6298c2c28a6@sentry.postmanlabs.com/11"></script>
+
+  <script type="text/javascript">
+    messenger.queue({ "body": "One-click live docs for your teams collections <a href=\"https://www.getpostman.com/pricing#pro-free-trial-7\" target=\"_blank\" class=\"gtm-start-trial\">Try for 7 days and share with your team</a>", "type": "notify", "persist": true });
+  </script>
+
+
+  <script type="text/javascript" id="">(function (a, d) { var b = !1, c = function (a) { b || (dataLayer.push({ event: "documenter_engaged" }), b = !0) }; a.setTimeout(function () { a.addEventListener("click", c, !1); d.addEventListener("scroll", c, !1) }, 1E3) })(window, document);</script>
+  <script type="text/javascript" id="">var meta = {}; meta.url = google_tag_manager["GTM-KCKQFT"].macro(3); dataLayer.push({ eventSource: "documenter", eventCategory: "documenter", eventAction: "view", eventLabel: google_tag_manager["GTM-KCKQFT"].macro(4), eventMeta: meta });</script>
+  <script type="text/javascript" id="">(function () {
+      var eventData, request = new XMLHttpRequest, eventAPI = { "production": "https://analytics.getpostman.com/event", "staging": "https://analytics.getpostman-beta.com/event" }, apiMethod = "POST", thisEvent = "documenter", thisEnv = "production", EventSource = function (property, type, indexType) { return { "type": type, "property": property, "indexType": indexType } }, eventSources = {
+        "documenter": new EventSource("documenter", "events-website", "client-events"), "echo": new EventSource("echo", "events-website",
+          "client-events")      
+}, populateIfDefined = function (dataKey, dataLayerValue) { if (dataLayerValue && dataLayerValue !== "undefined" && dataLayerValue !== "null") eventData[dataKey] = dataLayerValue }; thisEvent = eventSources[thisEvent]; eventAPI = eventAPI[thisEnv]; if (thisEvent && eventAPI) {
+        eventData = { "type": thisEvent.type, "indexType": thisEvent.indexType, "env": thisEnv, "property": thisEvent.property, "timestamp": (new Date).toISOString() }; populateIfDefined("category", "documenter"); populateIfDefined("action", "view");
+        populateIfDefined("label", "undefined"); populateIfDefined("value", "undefined"); populateIfDefined("meta", google_tag_manager["GTM-KCKQFT"].macro(5)); populateIfDefined("userId", "undefined"); populateIfDefined("teamId", "undefined"); if ("undefined" === "run_in_postman") if ("" && "" !== "undefined") eventData.meta = { referrer: "" }; if (google_tag_manager["GTM-KCKQFT"].macro(6)) console.log("Sending LS event:", eventData); eventData = btoa(JSON.stringify(eventData));
+        request.open(apiMethod, eventAPI, true); setTimeout(function () { request.send(eventData) }, 0); dataLayer.push({ "eventCategory": "", "eventAction": "", "eventLabel": "", "eventValue": "", "eventSource": "", "eventMeta": {} })
+      }
+    })();</script>
+  <script type="text/javascript" id="">var meta = {}; meta.url = google_tag_manager["GTM-KCKQFT"].macro(12); dataLayer.push({ eventSource: "documenter", eventCategory: "documenter", eventAction: "initiate_publish", eventMeta: meta });</script>
+  <script type="text/javascript" id="">(function () {      
+var eventData, request = new XMLHttpRequest, eventAPI = { "production": "https://analytics.getpostman.com/event", "staging": "https://analytics.getpostman-beta.com/event" }, apiMethod = "POST", thisEvent = "documenter", thisEnv = "production", EventSource = function (property, type, indexType) { return { "type": type, "property": property, "indexType": indexType } }, eventSources = {
+        "documenter": new EventSource("documenter", "events-website", "client-events"), "echo": new EventSource("echo", "events-website",
+          "client-events")
+      }, populateIfDefined = function (dataKey, dataLayerValue) { if (dataLayerValue && dataLayerValue !== "undefined" && dataLayerValue !== "null") eventData[dataKey] = dataLayerValue }; thisEvent = eventSources[thisEvent]; eventAPI = eventAPI[thisEnv]; if (thisEvent && eventAPI) {
+        eventData = { "type": thisEvent.type, "indexType": thisEvent.indexType, "env": thisEnv, "property": thisEvent.property, "timestamp": (new Date).toISOString() }; populateIfDefined("category", "documenter"); populateIfDefined("action", "initiate_publish");
+        populateIfDefined("label", ""); populateIfDefined("value", ""); populateIfDefined("meta", google_tag_manager["GTM-KCKQFT"].macro(13)); populateIfDefined("userId", "undefined"); populateIfDefined("teamId", "undefined"); if ("" === "run_in_postman") if ("" && "" !== "undefined") eventData.meta = { referrer: "" }; if (google_tag_manager["GTM-KCKQFT"].macro(14)) console.log("Sending LS event:", eventData); eventData = btoa(JSON.stringify(eventData));
+        request.open(apiMethod, eventAPI, true); setTimeout(function () { request.send(eventData) }, 0); dataLayer.push({ "eventCategory": "", "eventAction": "", "eventLabel": "", "eventValue": "", "eventSource": "", "eventMeta": {} })
+      }
+    })();</script>
+  <script type="text/javascript" id="">var meta = {}; meta.url = google_tag_manager["GTM-KCKQFT"].macro(15); dataLayer.push({ eventSource: "documenter", eventCategory: "documenter", eventAction: "engage", eventLabel: google_tag_manager["GTM-KCKQFT"].macro(16), eventMeta: meta });</script>
+  <script type="text/javascript" id="">(function () {      
+var eventData, request = new XMLHttpRequest, eventAPI = { "production": "https://analytics.getpostman.com/event", "staging": "https://analytics.getpostman-beta.com/event" }, apiMethod = "POST", thisEvent = "documenter", thisEnv = "production", EventSource = function (property, type, indexType) { return { "type": type, "property": property, "indexType": indexType } }, eventSources = {
+        "documenter": new EventSource("documenter", "events-website", "client-events"), "echo": new EventSource("echo", "events-website",
+          "client-events")      
+}, populateIfDefined = function (dataKey, dataLayerValue) { if (dataLayerValue && dataLayerValue !== "undefined" && dataLayerValue !== "null") eventData[dataKey] = dataLayerValue }; thisEvent = eventSources[thisEvent]; eventAPI = eventAPI[thisEnv]; if (thisEvent && eventAPI) {
+        eventData = { "type": thisEvent.type, "indexType": thisEvent.indexType, "env": thisEnv, "property": thisEvent.property, "timestamp": (new Date).toISOString() }; populateIfDefined("category", "documenter"); populateIfDefined("action", "engage");
+        populateIfDefined("label", "undefined"); populateIfDefined("value", ""); populateIfDefined("meta", google_tag_manager["GTM-KCKQFT"].macro(17)); populateIfDefined("userId", "undefined"); populateIfDefined("teamId", "undefined"); if ("undefined" === "run_in_postman") if ("" && "" !== "undefined") eventData.meta = { referrer: "" }; if (google_tag_manager["GTM-KCKQFT"].macro(18)) console.log("Sending LS event:", eventData); eventData = btoa(JSON.stringify(eventData));
+        request.open(apiMethod, eventAPI, true); setTimeout(function () { request.send(eventData) }, 0); dataLayer.push({ "eventCategory": "", "eventAction": "", "eventLabel": "", "eventValue": "", "eventSource": "", "eventMeta": {} })
+      }    
+})();</script>
+  <script type="text/javascript" id="">dataLayer.push({ eventSource: "documenter", eventCategory: "documenter", eventAction: "change_environment" });</script>
+  <script type="text/javascript" id="">(function () {      
+var eventData, request = new XMLHttpRequest, eventAPI = { "production": "https://analytics.getpostman.com/event", "staging": "https://analytics.getpostman-beta.com/event" }, apiMethod = "POST", thisEvent = "documenter", thisEnv = "production", EventSource = function (property, type, indexType) { return { "type": type, "property": property, "indexType": indexType } }, eventSources = {
+        "documenter": new EventSource("documenter", "events-website", "client-events"), "echo": new EventSource("echo", "events-website",
+          "client-events")
+      }, populateIfDefined = function (dataKey, dataLayerValue) { if (dataLayerValue && dataLayerValue !== "undefined" && dataLayerValue !== "null") eventData[dataKey] = dataLayerValue }; thisEvent = eventSources[thisEvent]; eventAPI = eventAPI[thisEnv]; if (thisEvent && eventAPI) {
+        eventData = { "type": thisEvent.type, "indexType": thisEvent.indexType, "env": thisEnv, "property": thisEvent.property, "timestamp": (new Date).toISOString() }; populateIfDefined("category", "documenter"); populateIfDefined("action", "change_environment");
+        populateIfDefined("label", ""); populateIfDefined("value", ""); populateIfDefined("meta", google_tag_manager["GTM-KCKQFT"].macro(22)); populateIfDefined("userId", "undefined"); populateIfDefined("teamId", "undefined"); if ("" === "run_in_postman") if ("" && "" !== "undefined") eventData.meta = { referrer: "" }; if (google_tag_manager["GTM-KCKQFT"].macro(23)) console.log("Sending LS event:", eventData); eventData = btoa(JSON.stringify(eventData));
+        request.open(apiMethod, eventAPI, true); setTimeout(function () { request.send(eventData) }, 0); dataLayer.push({ "eventCategory": "", "eventAction": "", "eventLabel": "", "eventValue": "", "eventSource": "", "eventMeta": {} })      
+}
+    })();</script>
+</body>
+
 </html>
